@@ -1,0 +1,132 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+
+% Basic information
+\newcommand{\coursename}{Computer Network Course Practice}
+\newcommand{\projecttitle}{Design and Implementation of a Lightweight Email Client}
+\newcommand{\semester}{2026 Fall}
+\newcommand{\schoolname}{School of Computer Science and Technology}
+\newcommand{\universityname}{Beijing Institute of Technology}
+
+% Replace these before submission.
+\newcommand{\studentid}{\rule{7cm}{0.4pt}}
+\newcommand{\studentname}{\rule{7cm}{0.4pt}}
+\newcommand{\reportdate}{\rule{7cm}{0.4pt}}
+
+% Simple instruction text used throughout the template.
+\newcommand{\prompt}[1]{\textit{#1}}
+
+\begin{document}
+
+% -------------------------------------------------
+% Cover page
+% -------------------------------------------------
+\begin{titlepage}
+\centering
+
+\vspace*{2cm}
+
+{\Large \coursename\par}
+
+\vspace{2cm}
+
+{\LARGE\bfseries \projecttitle\par}
+
+\vspace{0.8cm}
+
+{\Large Report\par}
+
+\vfill
+
+\begin{tabular}{ll}
+Student ID: & \studentid \\[1em]
+Name:       & \studentname \\[1em]
+Date:       & \reportdate
+\end{tabular}
+
+\vfill
+
+{\schoolname\par}
+{\universityname\par}
+
+\vspace{0.8cm}
+
+{\semester\par}
+
+\end{titlepage}
+
+% -------------------------------------------------
+\section{Requirements}
+% -------------------------------------------------
+\prompt{State the required project functions and the functions you actually implemented. The basic project is a lightweight email client using TCP sockets: one account / one test server, plain-text SMTP sending, POP3 receiving, a simple Inbox/message viewer, local message storage, and basic error handling/logging. Clearly separate any bonus features from the basic requirements.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Analysis}
+% -------------------------------------------------
+\prompt{Explain the relevant networking concepts and protocol behavior: SMTP and POP3 command-response flows, TCP byte-stream handling (including partial reads and multi-line responses), message parsing, local storage, and common failure cases. If you use a local or instructor-provided test server, explain why it is suitable for the basic project. TLS/OAuth is not required for the basic version.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Design}
+% -------------------------------------------------
+\prompt{Describe the overall architecture and module responsibilities. A typical decomposition is SMTP module, POP3 module, local mailbox/storage, user interface, and logger. Include the main data flow or state transitions. A command-line interface is sufficient; a GUI is optional.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Development and Implementation}
+% -------------------------------------------------
+\prompt{Describe the development environment (OS, language, compiler/interpreter, libraries, database if any), project structure, and the most important functions/classes/data structures. Show representative code only where it helps explain protocol handling or design decisions. High-level libraries that completely hide the required SMTP/POP3 protocol implementation should not be used for the core protocol work.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{System Deployment, Startup, and Use}
+% -------------------------------------------------
+\prompt{Explain how to configure, build, start, and use the program. Include server address/ports and other non-sensitive configuration needed for the demonstration. Prefer a local or instructor-provided test server for the basic project. Do not include real passwords in the report, screenshots, source-code examples, or logs.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{System Test}
+% -------------------------------------------------
+\prompt{Report normal and error-case testing. At minimum demonstrate: successful connection to SMTP and POP3; at least three successful plain-text sends; retrieval and display of received messages; local saving and reopening after restart; and at least three handled error cases such as wrong password, unavailable server, timeout, invalid response, or invalid input. Include representative screenshots/terminal output and, where useful, unit or integration tests.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Performance}
+% -------------------------------------------------
+\prompt{Briefly measure normal send and retrieve time and discuss the result. A small data table is sufficient; a simple figure is optional. Extensive stress/load testing is not required for the basic project. If you implemented concurrency or other bonus features, you may include additional measurements relevant to those features.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Summary or Conclusions}
+% -------------------------------------------------
+\prompt{Summarize what you learned, the main technical problems encountered, the solutions used, the functions completed, the test results, and any limitations or possible future improvements. Distinguish basic requirements from bonus features.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{References}
+% -------------------------------------------------
+\prompt{List the protocol specifications, documentation, libraries, tutorials, or other materials actually used. Use a consistent citation format. There is no fixed minimum number of references unless the instructor announces one separately.}
+
+\vspace{3em}
+
+% -------------------------------------------------
+\section{Comments}
+% -------------------------------------------------
+\prompt{Optional: comments or suggestions about the course, project, or teaching materials.}
+
+\vfill
+
+\noindent\textbf{Submission note:}
+Submit the complete source code, README, this report, representative screenshots/terminal output, test results/logs, and a short description of any bonus features. All work is individual; be prepared to explain the submitted code and protocol behavior during the presentation or demonstration.
+
+\end{document}

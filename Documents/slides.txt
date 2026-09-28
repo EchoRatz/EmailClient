@@ -1,0 +1,319 @@
+Computer Network Course Practice
+Course Overview & Network Programming Project
+
+
+            Instructor: Zhengyang Liu
+
+        School of Computer Science and Technology
+              Beijing Institute of Technology
+
+
+                      2026 Fall
+
+
+
+
+                                                    1 / 20
+Course Information
+
+
+   ▶ Title: Computer Network Course Practice
+   ▶ Code: 100073009
+   ▶ Credits / Hours: 1 credit / 32 hours
+   ▶ Type: Compulsory
+   ▶ Pre-requisites:
+       ▶ Computer Networks
+       ▶ Programming in C++ / Java / Python
+       ▶ Basic Socket and Multi-Process / Multi-Thread concepts
+
+
+
+
+                                                                  2 / 20
+Course Website
+
+   ▶ Course platform: https://lexue.bit.edu.cn/
+   ▶ Course page: https:
+     //lexue.bit.edu.cn/course/view.php?id=17077
+   ▶ Login name: your student ID
+   ▶ Login password: your own password
+   ▶ Course pass: See the current course announcement
+
+  Use the course website for
+  Downloading PPT/PDF materials, checking announcements,
+  and uploading homework, project ﬁles, and reports.
+
+
+
+                                                           3 / 20
+Course Description
+
+
+
+    ▶ A practical course in computer networks.
+    ▶ Network programming
+        ▶ implementation of protocols and services;
+        ▶ development and testing of a complete network
+          application.
+
+
+
+
+                                                          4 / 20
+Goals of This Course
+    ▶ Understand computer network architectures and protocols
+      more deeply through practice.
+    ▶ Build the basic ability of network engineering,
+      programming, and application.
+    ▶ Be able to design a network and correctly conﬁgure
+      switches and routers.
+    ▶ Be able to develop, test, and explain a basic network
+      application.
+
+
+    Understand the protocol, implement it correctly, and
+                 verify it experimentally.
+
+
+                                                                5 / 20
+Project: Network
+Programming
+
+  Design and Implementation of a
+     Lightweight Email Client
+   SMTP + POP3 + Socket Programming
+
+
+      Complete the core functions ﬁrst.
+    Advanced functions are bonus features.
+Why This Project?
+   ▶ A practical application of TCP socket programming.
+   ▶ Learn how real application-layer protocols exchange
+     commands and responses.
+   ▶ SMTP and POP3 are simple, text-based, and still
+     represent real Internet protocols.
+   ▶ Build a complete client without reproducing a commercial
+     mail system.
+
+
+   Required scope: one account, plain-text email, SMTP sending,
+         POP3 receiving, a simple Inbox, and local storage.
+   Use a local or instructor-provided test server whenever possible;
+          TLS/OAuth is not part of the basic requirement.
+
+
+                                                                       7 / 20
+Project Structure
+
+  Basic                         Bonus Features
+  Requirements                  ▶ TLS / SSL
+    ▶ One account / one test    ▶ Attachments and MIME
+      server                    ▶ Background checking
+    ▶ Send email with SMTP
+                                ▶ IMAP
+    ▶ Receive email with POP3
+                                ▶ Multiple accounts
+    ▶ Simple Inbox and          ▶ Search, GUI, HTML
+      message viewer              email, etc.
+    ▶ Save messages locally
+    ▶ Error handling and
+      logging
+
+
+                                                         8 / 20
+Basic Requirement 1: Send Email
+
+   ▶ Connect to an SMTP server using a TCP socket.
+   ▶ Let the user enter recipient, subject, and message body.
+   ▶ Implement a small subset of SMTP commands:
+        ▶ HELO/EHLO
+        ▶ MAIL FROM
+        ▶ RCPT TO
+        ▶ DATA
+        ▶ QUIT
+   ▶ Parse and check server reply codes.
+  Do not use a high-level library that completely hides SMTP in
+  the required implementation.
+
+
+                                                                  9 / 20
+Basic Requirement 2: Receive Email
+
+   ▶ Connect to a POP3 server and authenticate.
+   ▶ Implement a small subset of POP3 commands:
+       ▶ USER / PASS
+       ▶ STAT or LIST
+       ▶ RETR
+       ▶ QUIT
+   ▶ Display a simple Inbox:
+       ▶ message number, sender, subject, and date when
+         available;
+       ▶ let the user select and read one message.
+
+
+
+
+                                                          10 / 20
+Basic Requirement 3: Local Mailbox
+
+
+   ▶ Save downloaded messages locally.
+   ▶ Reload saved messages after restarting the program.
+   ▶ Storage can be simple: text ﬁles, JSON, or SQLite.
+   ▶ A command-line interface is completely acceptable.
+   ▶ Handle connection failures, wrong passwords, timeouts,
+     and invalid responses gracefully.
+   ▶ Keep a short log; never log passwords.
+
+
+
+
+                                                              11 / 20
+Protocol Workﬂow
+
+                                                              SMTP Server
+                                                               Send Mail
+
+                                Email Client
+   User Interface
+                              Protocol Module
+
+                                                              POP3 Server
+   Local Mailbox                                              Receive Mail
+
+      Focus on command–response behavior and correct TCP stream handling.
+   Remember: TCP is a byte stream; one send does not necessarily equal one recv.
+
+
+
+
+                                                                                   12 / 20
+Bonus Features
+
+   ▶ TLS / STARTTLS                ▶ Local search
+   ▶ MIME attachments              ▶ Read/unread
+   ▶ Background mail                 management
+     checking                      ▶ HTML email
+   ▶ IMAP support                  ▶ Graphical interface
+   ▶ Multiple accounts             ▶ Improved multithreading
+
+  Principle
+  A smaller number of well-implemented bonus features is better
+  than many incomplete features.
+
+
+
+                                                                  13 / 20
+Testing and Deliverables
+    ▶ Demonstrate successful connection to both SMTP and
+      POP3 servers.
+    ▶ Demonstrate at least three successful sent messages.
+    ▶ Retrieve and display received messages.
+    ▶ Save messages locally and reopen them after restart.
+    ▶ Demonstrate at least three error cases.
+    ▶ Brieﬂy measure normal send/retrieve time; a small table
+      is enough and stress testing is not required.
+    ▶ Submit individually:
+        ▶ source code and README;
+        ▶ one solution report;
+        ▶ screenshots or terminal output;
+        ▶ test results and representative logs;
+        ▶ description of bonus features, if any.
+                                                                14 / 20
+Grading Policy
+
+                  Final Grade (100 Points)
+
+     Report                                  40%
+     Results (Project Code)                  20%
+     Presentation (Compulsory)               10%
+     Course Performance                      30%
+
+
+
+   The report is a major part of the ﬁnal grade—do not
+                treat it as an afterthought.
+
+
+
+                                                         15 / 20
+Report Structure
+
+  Use the course report template. Keep the following section names and
+  adapt the content to the email-client project.
+
+    1. Requirements                       6. System Test
+    2. Analysis                           7. Performance
+    3. Design                             8. Summary or Conclusions
+    4. Development and                    9. References
+       Implementation
+                                      10. Comments (optional)
+    5. System Deployment, Startup,
+        and Use
+  References: Cite the protocol documents, libraries, and other materials
+  actually used. No ﬁxed minimum count is required unless announced
+  separately.
+
+
+
+                                                                            16 / 20
+Presentation
+
+
+    ▶ Compulsory.
+    ▶ Explain the architecture and SMTP/POP3 protocol
+      behavior.
+    ▶ Demonstrate the working system, including normal and
+      error cases.
+    ▶ Be ready to explain your own code and TCP stream
+      handling.
+
+
+
+
+                                                             17 / 20
+Assignments
+
+   ▶ All assignments are individual.
+   ▶ Start early.
+   ▶ Ask questions early.
+   ▶ Submit on time.
+
+
+  Why start early?
+  Network programs often fail because of small protocol,
+  timeout, parsing, or environment issues. These problems are
+  easier to solve when you leave time to test them carefully.
+
+
+
+
+                                                                18 / 20
+IMPORTANT!
+
+  ▶ Prepare for the experiment before starting it.
+  ▶ C/C++ and Java are encouraged; other languages are
+    allowed.
+  ▶ A beautiful UI is a plus, but networking correctness comes
+    ﬁrst.
+  ▶ A detailed report is very important.
+  ▶ Copying from others may receive zero credit.
+  ▶ Do not download and submit existing project code from
+    the Internet.
+  ▶ Be prepared to explain your implementation during the
+    demo or presentation.
+
+
+                                                                 19 / 20
+What to Remember
+1. Understand the protocol.
+2. Make the basic system work correctly.
+3. Test normal and error cases carefully.
+4. Explain your design and implementation clearly.
+
+
+
+
+              Correctness ﬁrst.
+              Features second.
+
