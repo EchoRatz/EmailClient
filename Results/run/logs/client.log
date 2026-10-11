@@ -1,0 +1,130 @@
+time=2026-10-09T16:14:34.370+08:00 level=DEBUG msg="S: /172.17.0.2 GreenMail SMTP Service v2.1.14 ready" code=220
+time=2026-10-09T16:14:34.370+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:34.370+08:00 level=DEBUG msg="C: EHLO email-client"
+time=2026-10-09T16:14:34.372+08:00 level=DEBUG msg="S: /172.17.0.2\nAUTH PLAIN LOGIN XOAUTH2\nSMTPUTF8" code=250
+time=2026-10-09T16:14:34.372+08:00 level=DEBUG msg="C: MAIL FROM:<alice@localhost>"
+time=2026-10-09T16:14:34.387+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.387+08:00 level=DEBUG msg="C: RCPT TO:<alice@localhost>"
+time=2026-10-09T16:14:34.390+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.390+08:00 level=DEBUG msg="C: DATA"
+time=2026-10-09T16:14:34.391+08:00 level=DEBUG msg="S: Start mail input; end with <CRLF>.<CRLF>" code=354
+time=2026-10-09T16:14:34.414+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.414+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.415+08:00 level=DEBUG msg="S: /172.17.0.2 Service closing transmission channel" code=221
+time=2026-10-09T16:14:34.415+08:00 level=INFO msg="Message sent successfully" to=[alice@localhost]
+time=2026-10-09T16:14:34.420+08:00 level=DEBUG msg="S: /172.17.0.2 GreenMail SMTP Service v2.1.14 ready" code=220
+time=2026-10-09T16:14:34.420+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:34.420+08:00 level=DEBUG msg="C: EHLO email-client"
+time=2026-10-09T16:14:34.421+08:00 level=DEBUG msg="S: /172.17.0.2\nAUTH PLAIN LOGIN XOAUTH2\nSMTPUTF8" code=250
+time=2026-10-09T16:14:34.421+08:00 level=DEBUG msg="C: MAIL FROM:<alice@localhost>"
+time=2026-10-09T16:14:34.422+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.422+08:00 level=DEBUG msg="C: RCPT TO:<alice@localhost>"
+time=2026-10-09T16:14:34.422+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.422+08:00 level=DEBUG msg="C: RCPT TO:<bob@localhost>"
+time=2026-10-09T16:14:34.423+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.423+08:00 level=DEBUG msg="C: DATA"
+time=2026-10-09T16:14:34.423+08:00 level=DEBUG msg="S: Start mail input; end with <CRLF>.<CRLF>" code=354
+time=2026-10-09T16:14:34.426+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.426+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.426+08:00 level=DEBUG msg="S: /172.17.0.2 Service closing transmission channel" code=221
+time=2026-10-09T16:14:34.426+08:00 level=INFO msg="Message sent successfully" to="[alice@localhost bob@localhost]"
+time=2026-10-09T16:14:34.428+08:00 level=DEBUG msg="S: /172.17.0.2 GreenMail SMTP Service v2.1.14 ready" code=220
+time=2026-10-09T16:14:34.428+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:34.428+08:00 level=DEBUG msg="C: EHLO email-client"
+time=2026-10-09T16:14:34.429+08:00 level=DEBUG msg="S: /172.17.0.2\nAUTH PLAIN LOGIN XOAUTH2\nSMTPUTF8" code=250
+time=2026-10-09T16:14:34.429+08:00 level=DEBUG msg="C: MAIL FROM:<alice@localhost>"
+time=2026-10-09T16:14:34.429+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.429+08:00 level=DEBUG msg="C: RCPT TO:<alice@localhost>"
+time=2026-10-09T16:14:34.430+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.430+08:00 level=DEBUG msg="C: DATA"
+time=2026-10-09T16:14:34.430+08:00 level=DEBUG msg="S: Start mail input; end with <CRLF>.<CRLF>" code=354
+time=2026-10-09T16:14:34.432+08:00 level=DEBUG msg="S: OK" code=250
+time=2026-10-09T16:14:34.432+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.432+08:00 level=DEBUG msg="S: /172.17.0.2 Service closing transmission channel" code=221
+time=2026-10-09T16:14:34.432+08:00 level=INFO msg="Message sent successfully" to=[alice@localhost]
+time=2026-10-09T16:14:34.434+08:00 level=DEBUG msg="S: +OK POP3 GreenMail Server v2.1.14 ready"
+time=2026-10-09T16:14:34.434+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:34.434+08:00 level=DEBUG msg="C: USER alice@localhost"
+time=2026-10-09T16:14:34.434+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.434+08:00 level=DEBUG msg="C: PASS ****"
+time=2026-10-09T16:14:34.435+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.435+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:34.435+08:00 level=DEBUG msg="C: LIST"
+time=2026-10-09T16:14:34.435+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.436+08:00 level=DEBUG msg="C: RETR 1"
+time=2026-10-09T16:14:34.437+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.438+08:00 level=INFO msg="Retrieved message 1" bytes=332
+time=2026-10-09T16:14:34.438+08:00 level=DEBUG msg="C: RETR 2"
+time=2026-10-09T16:14:34.438+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.439+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:34.439+08:00 level=DEBUG msg="C: RETR 3"
+time=2026-10-09T16:14:34.440+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.441+08:00 level=INFO msg="Retrieved message 3" bytes=339
+time=2026-10-09T16:14:34.441+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.441+08:00 level=DEBUG msg="S: +OK bye see you soon"
+time=2026-10-09T16:14:34.444+08:00 level=DEBUG msg="S: +OK POP3 GreenMail Server v2.1.14 ready"
+time=2026-10-09T16:14:34.444+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:34.444+08:00 level=DEBUG msg="C: USER alice@localhost"
+time=2026-10-09T16:14:34.444+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.444+08:00 level=DEBUG msg="C: PASS ****"
+time=2026-10-09T16:14:34.445+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.445+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:34.445+08:00 level=DEBUG msg="C: RETR 2"
+time=2026-10-09T16:14:34.445+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.446+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:34.446+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.447+08:00 level=DEBUG msg="S: +OK bye see you soon"
+time=2026-10-09T16:14:34.448+08:00 level=DEBUG msg="S: +OK POP3 GreenMail Server v2.1.14 ready"
+time=2026-10-09T16:14:34.448+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:34.448+08:00 level=DEBUG msg="C: USER alice@localhost"
+time=2026-10-09T16:14:34.449+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.449+08:00 level=DEBUG msg="C: PASS ****"
+time=2026-10-09T16:14:34.449+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.449+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:34.449+08:00 level=DEBUG msg="C: RETR 3"
+time=2026-10-09T16:14:34.450+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:34.451+08:00 level=INFO msg="Retrieved message 3" bytes=339
+time=2026-10-09T16:14:34.451+08:00 level=DEBUG msg="C: QUIT"
+time=2026-10-09T16:14:34.451+08:00 level=DEBUG msg="S: +OK bye see you soon"
+time=2026-10-09T16:14:35.007+08:00 level=DEBUG msg="S: +OK POP3 GreenMail Server v2.1.14 ready"
+time=2026-10-09T16:14:35.007+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:35.007+08:00 level=DEBUG msg="C: USER alice@localhost"
+time=2026-10-09T16:14:35.009+08:00 level=DEBUG msg="S: +OK"
+time=2026-10-09T16:14:35.009+08:00 level=DEBUG msg="C: PASS ****"
+time=2026-10-09T16:14:35.010+08:00 level=DEBUG msg="S: -ERR Authentication failed: com.icegreen.greenmail.user.UserException: Invalid password"
+time=2026-10-09T16:14:35.010+08:00 level=ERROR msg="POP3 authentication failed" user=alice@localhost err="pop3: PASS: server replied -ERR Authentication failed: com.icegreen.greenmail.user.UserException: Invalid password"
+time=2026-10-09T16:14:35.011+08:00 level=ERROR msg="Login failed: wrong username or password." kind=auth_failed err="pop3: PASS: server replied -ERR Authentication failed: com.icegreen.greenmail.user.UserException: Invalid password"
+time=2026-10-09T16:14:35.024+08:00 level=ERROR msg="Cannot reach the mail server. Is it running, and are the address and port right?" kind=unreachable err="pop3: connect localhost:1: dial tcp [::1]:1: connect: connection refused"
+time=2026-10-09T16:14:35.025+08:00 level=ERROR msg="Cannot reach the mail server. Is it running, and are the address and port right?" kind=unreachable err="smtp: connect localhost:1: dial tcp [::1]:1: connect: connection refused"
+time=2026-10-09T16:14:37.036+08:00 level=ERROR msg="The mail server did not answer in time." kind=timeout err="pop3: greeting: read tcp 127.0.0.1:50503->127.0.0.1:39999: i/o timeout"
+time=2026-10-09T16:14:37.058+08:00 level=ERROR msg="invalid choice \"9\", enter 1-5" kind=invalid_input err="invalid choice \"9\", enter 1-5"
+time=2026-10-09T16:14:37.058+08:00 level=ERROR msg="\"abc\" is not a message number" kind=invalid_input err="\"abc\" is not a message number"
+time=2026-10-09T16:14:37.059+08:00 level=ERROR msg="invalid recipient \"not-an-address\"" kind=invalid_input err="invalid recipient \"not-an-address\""
+time=2026-10-09T16:14:37.059+08:00 level=ERROR msg="no saved message with ID 99" kind=invalid_input err="no saved message with ID 99"
+time=2026-10-09T16:14:51.590+08:00 level=INFO msg="HTTP API listening" addr=127.0.0.1:18081
+time=2026-10-09T16:14:54.806+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:54.807+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:54.814+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:54.815+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:54.816+08:00 level=INFO msg="Retrieved message 1" bytes=332
+time=2026-10-09T16:14:54.817+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:54.818+08:00 level=INFO msg="Retrieved message 3" bytes=339
+time=2026-10-09T16:14:55.026+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:55.029+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:55.030+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:55.222+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:55.238+08:00 level=INFO msg="Message sent successfully" to=[alice@localhost]
+time=2026-10-09T16:14:55.356+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:55.357+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:55.360+08:00 level=INFO msg="Retrieved message 1" bytes=332
+time=2026-10-09T16:14:55.361+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:55.363+08:00 level=INFO msg="Retrieved message 3" bytes=339
+time=2026-10-09T16:14:55.364+08:00 level=INFO msg="Retrieved message 4" bytes=391
+time=2026-10-09T16:14:56.396+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:56.396+08:00 level=INFO msg="Connected to SMTP server" addr=localhost:3025
+time=2026-10-09T16:14:56.398+08:00 level=INFO msg="POP3 authenticated" user=alice@localhost
+time=2026-10-09T16:14:56.399+08:00 level=INFO msg="Connected to POP3 server" addr=localhost:3110
+time=2026-10-09T16:14:56.400+08:00 level=INFO msg="Retrieved message 1" bytes=332
+time=2026-10-09T16:14:56.402+08:00 level=INFO msg="Retrieved message 2" bytes=390
+time=2026-10-09T16:14:56.403+08:00 level=INFO msg="Retrieved message 3" bytes=339
+time=2026-10-09T16:14:56.404+08:00 level=INFO msg="Retrieved message 4" bytes=391

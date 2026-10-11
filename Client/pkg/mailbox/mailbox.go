@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"sync"
 	"time"
 
 	"email-client/pkg/message"
@@ -31,7 +32,9 @@ type file struct {
 	Messages []Entry `json:"messages"`
 }
 
+// Mailbox is safe for concurrent use; the HTTP server calls it from many goroutines.
 type Mailbox struct {
+	mu   sync.RWMutex
 	path string
 	data file
 }
@@ -55,6 +58,9 @@ func Open(path string) (*Mailbox, error) {
 // Add parses raw and stores it. If the same message is already saved,
 // it returns the existing entry and added=false.
 func (mb *Mailbox) Add(raw []byte, pop3Num int) (e Entry, added bool, err error) {
+	mb.mu.Lock()
+	defer mb.mu.Unlock()
+
 	sum := sha256.Sum256(raw)
 	hash := hex.EncodeToString(sum[:])
 	for _, old := range mb.data.Messages {
@@ -83,6 +89,9 @@ func (mb *Mailbox) Add(raw []byte, pop3Num int) (e Entry, added bool, err error)
 // Save writes to a temp file and renames it, so a crash mid-write
 // cannot leave a half-written mailbox.
 func (mb *Mailbox) Save() error {
+	mb.mu.Lock()
+	defer mb.mu.Unlock()
+
 	if err := os.MkdirAll(filepath.Dir(mb.path), 0o755); err != nil {
 		return fmt.Errorf("mailbox: %w", err)
 	}
@@ -101,10 +110,14 @@ func (mb *Mailbox) Save() error {
 }
 
 func (mb *Mailbox) List() []Entry {
+	mb.mu.RLock()
+	defer mb.mu.RUnlock()
 	return slices.Clone(mb.data.Messages)
 }
 
 func (mb *Mailbox) Get(id int) (Entry, bool) {
+	mb.mu.RLock()
+	defer mb.mu.RUnlock()
 	for _, e := range mb.data.Messages {
 		if e.ID == id {
 			return e, true

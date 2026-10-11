@@ -8,6 +8,8 @@ import (
 	"net/mail"
 	"strings"
 	"time"
+
+	"email-client/pkg/mailerr"
 )
 
 type Message struct {
@@ -67,4 +69,25 @@ func Build(from string, to []string, subject, body string, date time.Time) []byt
 		b.WriteString("\n")
 	}
 	return b.Bytes()
+}
+
+// ParseRecipients splits a comma-separated "To" field into bare addresses,
+// rejecting anything net/mail cannot parse.
+func ParseRecipients(s string) ([]string, error) {
+	var out []string
+	for _, part := range strings.Split(s, ",") {
+		part = strings.TrimSpace(part)
+		if part == "" {
+			continue
+		}
+		addr, err := mail.ParseAddress(part)
+		if err != nil {
+			return nil, mailerr.Input("invalid recipient %q", part)
+		}
+		out = append(out, addr.Address)
+	}
+	if len(out) == 0 {
+		return nil, mailerr.Input("at least one recipient is required")
+	}
+	return out, nil
 }

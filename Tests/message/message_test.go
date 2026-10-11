@@ -53,3 +53,15 @@ func TestParseRejectsGarbage(t *testing.T) {
 		t.Fatal("expected error")
 	}
 }
+
+func TestParseRecipients(t *testing.T) {
+	got, err := message.ParseRecipients(" bob@x, Carol <carol@y> ,")
+	if err != nil || strings.Join(got, "|") != "bob@x|carol@y" {
+		t.Fatalf("got %v, %v", got, err)
+	}
+	for _, bad := range []string{"", " , ", "bob", "bob@x, nope"} {
+		if _, err := message.ParseRecipients(bad); err == nil {
+			t.Errorf("ParseRecipients(%q) succeeded", bad)
+		}
+	}
+}

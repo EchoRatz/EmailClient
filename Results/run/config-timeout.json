@@ -1,0 +1,11 @@
+{
+  "server": "localhost",
+  "smtp_port": 39999,
+  "pop3_port": 39999,
+  "username": "alice@localhost",
+  "password": "alice",
+  "from": "alice@localhost",
+  "timeout_seconds": 2,
+  "mailbox_path": "data/mailbox.json",
+  "log_path": "logs/client.log"
+}

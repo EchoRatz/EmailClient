@@ -1,0 +1,41 @@
+{
+  "next_id": 4,
+  "messages": [
+    {
+      "id": 1,
+      "pop3_num": 1,
+      "hash": "13ee8b219b70045cfdd5323a5ee4747559ed45779e13385d240b117e380c8395",
+      "saved_at": "2026-10-09T16:14:34.43846+08:00",
+      "from": "alice@localhost",
+      "to": "alice@localhost",
+      "subject": "Section 5 test 1",
+      "date": "2026-10-09T16:14:34+08:00",
+      "body": "First plain-text message.\n",
+      "raw": "Return-Path: \u003calice@localhost\u003e\nReceived: from 192.168.65.1 (HELO email-client); Fri Oct 09 08:14:34 UTC 2026\nFrom: alice@localhost\nTo: alice@localhost\nSubject: Section 5 test 1\nDate: Fri, 09 Oct 2026 16:14:34 +0800\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n\nFirst plain-text message.\n"
+    },
+    {
+      "id": 2,
+      "pop3_num": 2,
+      "hash": "7d5d172093b00ed551160371617b665f337ccba36dba8f840f47af1c1dbc73e2",
+      "saved_at": "2026-10-09T16:14:34.439945+08:00",
+      "from": "alice@localhost",
+      "to": "alice@localhost, bob@localhost",
+      "subject": "Section 5 test 2",
+      "date": "2026-10-09T16:14:34+08:00",
+      "body": "Second message, sent to two recipients.\n.line that starts with a dot\n",
+      "raw": "Return-Path: \u003calice@localhost\u003e\nReceived: from 192.168.65.1 (HELO email-client); Fri Oct 09 08:14:34 UTC 2026\nFrom: alice@localhost\nTo: alice@localhost, bob@localhost\nSubject: Section 5 test 2\nDate: Fri, 09 Oct 2026 16:14:34 +0800\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n\nSecond message, sent to two recipients.\n.line that starts with a dot\n"
+    },
+    {
+      "id": 3,
+      "pop3_num": 3,
+      "hash": "c2772c5397b0dcf0bb8bec7702bebae805e8bec92ac0224b9d105d04eb360276",
+      "saved_at": "2026-10-09T16:14:34.441546+08:00",
+      "from": "alice@localhost",
+      "to": "alice@localhost",
+      "subject": "Section 5 test 3",
+      "date": "2026-10-09T16:14:34+08:00",
+      "body": "Third message.\nIt has two lines.\n",
+      "raw": "Return-Path: \u003calice@localhost\u003e\nReceived: from 192.168.65.1 (HELO email-client); Fri Oct 09 08:14:34 UTC 2026\nFrom: alice@localhost\nTo: alice@localhost\nSubject: Section 5 test 3\nDate: Fri, 09 Oct 2026 16:14:34 +0800\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n\nThird message.\nIt has two lines.\n"
+    }
+  ]
+}

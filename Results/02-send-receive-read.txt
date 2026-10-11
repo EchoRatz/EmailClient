@@ -1,0 +1,102 @@
+=== Send 3 plain-text messages, check inbox, read message 2 and 3 ===
+--- typed input ---
+3
+alice@localhost
+Section 5 test 1
+First plain-text message.
+.
+3
+alice@localhost, bob@localhost
+Section 5 test 2
+Second message, sent to two recipients.
+.line that starts with a dot
+.
+3
+alice@localhost
+Section 5 test 3
+Third message.
+It has two lines.
+.
+1
+2
+2
+2
+3
+5
+--- program output ---
+Email client — alice@localhost via localhost
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> To (comma-separated): Subject: Body (end with a line containing only "."):
+Sent to alice@localhost in 53 ms
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> To (comma-separated): Subject: Body (end with a line containing only "."):
+Sent to alice@localhost, bob@localhost in 11 ms
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> To (comma-separated): Subject: Body (end with a line containing only "."):
+Sent to alice@localhost in 6 ms
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> 
+3 message(s) on server, 3 new saved locally
+
+No.  From             Subject           Date
+1    alice@localhost  Section 5 test 1  2026-10-09 16:14
+2    alice@localhost  Section 5 test 2  2026-10-09 16:14
+3    alice@localhost  Section 5 test 3  2026-10-09 16:14
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> Message number (from Check Inbox): 
+From:    alice@localhost
+To:      alice@localhost, bob@localhost
+Subject: Section 5 test 2
+Date:    2026-10-09 16:14
+
+Second message, sent to two recipients.
+.line that starts with a dot
+
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> Message number (from Check Inbox): 
+From:    alice@localhost
+To:      alice@localhost
+Subject: Section 5 test 3
+Date:    2026-10-09 16:14
+
+Third message.
+It has two lines.
+
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> --- exit code 0, about 0 s ---
+

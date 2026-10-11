@@ -1,0 +1,36 @@
+=== New process: view local messages and open ID 3 (no server needed) ===
+--- typed input ---
+4
+3
+5
+--- program output ---
+Email client — alice@localhost via localhost
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> 
+ID  From             Subject           Date
+1   alice@localhost  Section 5 test 1  2026-10-09 16:14
+2   alice@localhost  Section 5 test 2  2026-10-09 16:14
+3   alice@localhost  Section 5 test 3  2026-10-09 16:14
+
+ID to open (Enter to go back): 
+From:    alice@localhost
+To:      alice@localhost
+Subject: Section 5 test 3
+Date:    2026-10-09 16:14
+
+Third message.
+It has two lines.
+
+
+1. Check Inbox
+2. Read Message
+3. Compose and Send Email
+4. View Local Messages
+5. Exit
+> --- exit code 0, about 0 s ---
+

@@ -1,6 +1,7 @@
 package pop3
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
@@ -9,6 +10,9 @@ import (
 	"strings"
 	"time"
 )
+
+// ErrUnexpectedResponse marks a reply that is neither +OK nor -ERR, or is malformed.
+var ErrUnexpectedResponse = errors.New("unexpected response")
 
 // Error is a -ERR reply from the server.
 type Error struct {
@@ -67,7 +71,7 @@ func (c *Client) reply(cmd string) (string, error) {
 	case "-ERR":
 		return "", &Error{Cmd: cmd, Msg: rest}
 	default:
-		return "", fmt.Errorf("pop3: %s: unexpected response %q", cmd, line)
+		return "", fmt.Errorf("pop3: %s: %w %q", cmd, ErrUnexpectedResponse, line)
 	}
 }
 
@@ -106,7 +110,7 @@ func (c *Client) Stat() (count, size int, err error) {
 		return 0, 0, err
 	}
 	if _, err := fmt.Sscanf(rest, "%d %d", &count, &size); err != nil {
-		return 0, 0, fmt.Errorf("pop3: STAT: bad reply %q", rest)
+		return 0, 0, fmt.Errorf("pop3: STAT: %w %q", ErrUnexpectedResponse, rest)
 	}
 	return count, size, nil
 }
@@ -124,7 +128,7 @@ func (c *Client) List() ([]MsgInfo, error) {
 	for _, l := range lines {
 		var m MsgInfo
 		if _, err := fmt.Sscanf(l, "%d %d", &m.Num, &m.Size); err != nil {
-			return nil, fmt.Errorf("pop3: LIST: bad line %q", l)
+			return nil, fmt.Errorf("pop3: LIST: %w %q", ErrUnexpectedResponse, l)
 		}
 		msgs = append(msgs, m)
 	}

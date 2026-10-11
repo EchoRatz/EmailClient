@@ -1,0 +1,74 @@
+--- PASS: TestSendReceiveReadLocal (1.23s)
+--- PASS: TestInvalidInputDoesNotCrash (0.66s)
+--- PASS: TestErrorCases (1.40s)
+    --- PASS: TestErrorCases/wrong_password (0.19s)
+    --- PASS: TestErrorCases/server_unreachable (0.01s)
+    --- PASS: TestErrorCases/timeout (1.01s)
+PASS
+ok  	email-client-tests/cli	5.699s
+--- PASS: TestLoadValid (0.00s)
+--- PASS: TestLoadPasswordFromEnv (0.00s)
+--- PASS: TestLoadInvalid (0.00s)
+    --- PASS: TestLoadInvalid/missing_server (0.00s)
+    --- PASS: TestLoadInvalid/bad_port (0.00s)
+    --- PASS: TestLoadInvalid/bad_from (0.00s)
+    --- PASS: TestLoadInvalid/unknown_field (0.00s)
+    --- PASS: TestLoadInvalid/not_json (0.00s)
+PASS
+ok  	email-client-tests/config	1.354s
+--- PASS: TestSendRetrieveSave (0.06s)
+--- PASS: TestWrongPassword (0.01s)
+PASS
+ok  	email-client-tests/integration	1.668s
+--- PASS: TestPasswordNeverLogged (0.00s)
+PASS
+ok  	email-client-tests/logger	1.870s
+--- PASS: TestSaveAndReopen (0.00s)
+--- PASS: TestDuplicateNotAdded (0.00s)
+--- PASS: TestCorruptFile (0.00s)
+PASS
+ok  	email-client-tests/mailbox	2.660s
+--- PASS: TestClassify (0.23s)
+    --- PASS: TestClassify/connection_refused (0.00s)
+    --- PASS: TestClassify/unknown_host (0.02s)
+    --- PASS: TestClassify/silent_server (0.20s)
+    --- PASS: TestClassify/wrong_password (0.00s)
+    --- PASS: TestClassify/recipient_rejected (0.00s)
+    --- PASS: TestClassify/not_a_POP3_server (0.00s)
+    --- PASS: TestClassify/not_an_SMTP_server (0.00s)
+    --- PASS: TestClassify/dropped_mid-RETR (0.00s)
+    --- PASS: TestClassify/dropped_after_greeting (0.00s)
+    --- PASS: TestClassify/bad_recipient_input (0.00s)
+--- PASS: TestInputHeadlineIsTheMessage (0.00s)
+PASS
+ok  	email-client-tests/mailerr	2.367s
+--- PASS: TestBuildThenParse (0.00s)
+--- PASS: TestSubjectCannotInjectHeaders (0.00s)
+--- PASS: TestParseForeignMessage (0.00s)
+--- PASS: TestParseRejectsGarbage (0.00s)
+--- PASS: TestParseRecipients (0.00s)
+PASS
+ok  	email-client-tests/message	2.886s
+--- SKIP: TestTiming (0.00s)
+PASS
+ok  	email-client-tests/perf	3.086s
+--- PASS: TestSession (0.00s)
+--- PASS: TestBadPassword (0.00s)
+--- PASS: TestInterruptedTransfer (0.00s)
+--- PASS: TestPasswordNotLogged (0.00s)
+PASS
+ok  	email-client-tests/pop3	2.119s
+--- PASS: TestRoundTrip (0.05s)
+--- PASS: TestConcurrentRequests (0.04s)
+--- PASS: TestBadInput (0.00s)
+--- PASS: TestServerDown (0.00s)
+--- PASS: TestTimeout (1.01s)
+--- PASS: TestWrongPasswordNotLogged (0.02s)
+PASS
+ok  	email-client-tests/server	2.645s
+--- PASS: TestSendFullSession (0.00s)
+--- PASS: TestSendRecipientRejected (0.00s)
+--- PASS: TestConnectionRefused (0.00s)
+--- PASS: TestGreetingTimeout (0.20s)
+PASS
+ok  	email-client-tests/smtp	2.003s

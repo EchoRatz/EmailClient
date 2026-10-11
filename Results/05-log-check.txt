@@ -1,0 +1,13 @@
+Log file: Results/client.log (103 lines)
+Lines containing the real password command "PASS ****": 0
+Lines containing the wrong password used in error 1: 0
+Lines with the masked command "PASS ****": 4
+
+Spec example events found in the log:
+  Connected to SMTP server       3
+  Message sent successfully      3
+  Connected to POP3 server       4
+  Retrieved message              5
+  POP3 authentication failed     1
+  did not answer in time         1
+  Cannot reach the mail server   2

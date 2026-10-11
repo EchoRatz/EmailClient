@@ -52,18 +52,19 @@ NetworkLab/
 │   │   ├── cli/             # CLI menu (spec minimum UI)
 │   │   └── serve/           # HTTP JSON API (powers the web UI)
 │   └── pkg/                 # not internal/: Tests/ must be able to import it
+│       ├── account/         # send/refresh/fetch shared by cli + serve
 │       ├── config/          # load + validate config
 │       ├── smtp/            # SMTP client (raw socket + textproto)
 │       ├── pop3/            # POP3 client (raw socket + textproto)
 │       ├── message/         # model + header parse (net/mail)
 │       ├── mailbox/         # local storage (encoding/json)
 │       ├── logger/          # log/slog + password redaction
+│       ├── mailerr/         # error -> failure kind + readable message
 │       └── server/          # net/http JSON handlers
 ├── Tests/                   # Go module email-client-tests (replace => ../Client)
 └── WebUI/                   # Node.js + Tailwind — the GUI
     ├── package.json
-    ├── vite.config.js       # proxy /api -> :8080
-    ├── tailwind.config.js
+    ├── vite.config.js       # proxy /api -> :8081 (Tailwind v4: config lives in src/style.css)
     ├── index.html
     └── src/
 ```
@@ -84,14 +85,19 @@ single-threaded; goroutines only for the "background check" or GUI bonus.
 ```
 GET  /api/inbox         -> [{id, from, subject, date}]
 POST /api/refresh       -> pull POP3 into mailbox, return count
-GET  /api/messages/:id  -> {id, from, to, subject, date, body}
+GET  /api/messages/:num -> {id, from, to, subject, date, body}   (POP3 RETR by inbox num)
 POST /api/send          -> {to:[], subject, body}   (SMTP)
 GET  /api/local         -> locally saved messages
 GET  /api/health        -> server + config status
+POST /api/login         -> {email, password}; POP3 USER/PASS check, sets session cookie
+POST /api/logout        -> ends the session
+GET  /api/me            -> {email, has_avatar}
+GET  /api/avatar        -> profile picture;  PUT /api/avatar (raw image, <= 2 MB)
 ```
 
-- **Dev:** Vite proxies `/api` → `:8080`, so no CORS headache.
-- **Demo/production:** Go serves the built web UI via `go:embed` — single process, zero cross-origin.
+- **Dev:** Vite proxies `/api` → `:8081`, so no CORS headache.
+- **Demo/production:** `serve -web ../WebUI/dist` serves the built web UI from the same process — zero cross-origin. (`go:embed` can't reach `WebUI/`, which is outside the Go module.)
+- Errors: `{error, kind, detail}`; 400 invalid input, 504 timeout, 502 other mail-server failures.
 
 ---
 
@@ -145,7 +151,7 @@ The endpoints above as thin `net/http` handlers over the same core.
 **Done when:** `curl /api/send` and `curl /api/inbox` round-trip against GreenMail.
 
 ### BLOCK 7 · webui scaffold
-Vite + Tailwind project, Vite proxy → `:8080`, base layout + routing.
+Vite + Tailwind project, Vite proxy → `:8081`, base layout + routing.
 
 **Done when:** `npm run dev` serves a styled page and `/api/health` shows connected.
 
@@ -218,3 +224,7 @@ TLS/STARTTLS · MIME attachments · background mail checking · IMAP · multiple
 local search · read/unread + delete · HTML email · GUI (web) · improved concurrency.
 
 The web UI itself is already a listed bonus ("Graphical interface").
+
+**Added (2026-10-09):** sign-in with any mail account (= "Multiple accounts"; each account has its
+own saved mailbox under `Client/data/accounts/`), a profile picture per account, and the
+light/dark toggle ported from ParkingRecog. The CLI still uses config.json.

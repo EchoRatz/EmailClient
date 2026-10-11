@@ -1,0 +1,131 @@
+% Icon set for the report diagrams.
+%
+% Same drawing language as the web UI's theme toggle and the ParkingRecog
+% icon set (components/Icon.tsx): a 16-unit box, no fill, stroked in the
+% current colour, round caps and joins. The moon and sun are copied path for
+% path from WebUI/src/theme.js and are the only filled glyphs, as there.
+%
+% Use inside a tikzpicture:   \pic[scale=1.4] at (x,y) {i-mail};
+% Use inline in text:         \icon{i-mail}
+
+\usetikzlibrary{svg.path}
+
+\tikzset{
+  icon stroke/.style={line width=0.85pt, line cap=round, line join=round, fill=none},
+  % centre the 16x16 box on the pic origin and flip SVG's downward y axis
+  icon frame/.style={x=1pt, y=1pt, yscale=-1, shift={(-8,-8)}},
+}
+
+\newcommand{\defineicon}[2]{%
+  \tikzset{pics/#1/.style={code={%
+    \begin{scope}[icon frame]
+      \begin{scope}[icon stroke]#2\end{scope}
+    \end{scope}}}}}
+
+\newcommand{\icon}[1]{\tikz[baseline=-0.6ex]\pic[scale=0.72]{#1};}
+
+% envelope
+\defineicon{i-mail}{
+  \draw svg{M3.25 3.75h9.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9.5a1 1 0 0 1-1-1v-6.5a1 1 0 0 1 1-1z};
+  \draw svg{M2.75 4.75 8 8.75l5.25-4};
+}
+% paper plane: sending
+\defineicon{i-send}{
+  \draw svg{M13.75 2.25 7.25 8.75};
+  \draw svg{M13.75 2.25 9.5 13.75 7.25 8.75 2.25 6.5z};
+}
+% tray: inbox
+\defineicon{i-inbox}{
+  \draw svg{M2.25 9h3.25l1 1.75h3l1-1.75h3.25};
+  \draw svg{M2.25 9l1.9-5.1a1 1 0 0 1 .95-.65h5.8a1 1 0 0 1 .95.65L13.75 9v3.5a1.25 1.25 0 0 1-1.25 1.25h-9a1.25 1.25 0 0 1-1.25-1.25z};
+}
+% two stacked units: a mail server
+\defineicon{i-server}{
+  \draw[rounded corners=1] (2.25,2.25) rectangle (13.75,7);
+  \draw[rounded corners=1] (2.25,9) rectangle (13.75,13.75);
+  \draw svg{M8 4.6h3.25M8 11.4h3.25};
+  \fill (4.75,4.6) circle [radius=.8] (4.75,11.4) circle [radius=.8];
+}
+% prompt in a window: the CLI
+\defineicon{i-terminal}{
+  \draw[rounded corners=1.25] (1.75,2.75) rectangle (14.25,13.25);
+  \draw svg{M4.5 6.25 6.75 8.25 4.5 10.25M8.5 10.25h3};
+}
+% window with a title bar: the web UI
+\defineicon{i-browser}{
+  \draw[rounded corners=1.25] (1.75,2.75) rectangle (14.25,13.25);
+  \draw svg{M1.75 5.75h12.5};
+  \fill (3.9,4.25) circle [radius=.6] (5.6,4.25) circle [radius=.6];
+}
+% cylinder: the local mailbox
+\defineicon{i-database}{
+  \draw (8,4) ellipse [x radius=5.25, y radius=1.75];
+  \draw svg{M2.75 4v8c0 .97 2.35 1.75 5.25 1.75s5.25-.78 5.25-1.75V4};
+  \draw svg{M2.75 8c0 .97 2.35 1.75 5.25 1.75s5.25-.78 5.25-1.75};
+}
+% page with a folded corner: a file
+\defineicon{i-file}{
+  \draw svg{M9.25 1.75H4.25a1 1 0 0 0-1 1v10.5a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5.25z};
+  \draw svg{M9.25 1.75v3.5h3.5};
+}
+% bulleted lines: the log (ParkingRecog "listview")
+\defineicon{i-log}{
+  \fill (2.5,4) circle [radius=.8] (2.5,8) circle [radius=.8] (2.5,12) circle [radius=.8];
+  \draw svg{M5.75 4h8M5.75 8h8M5.75 12h8};
+}
+% one figure: the user
+\defineicon{i-user}{
+  \draw (8,5.5) circle [radius=2.75];
+  \draw svg{M2.75 13.75c0-2.6 2.35-4.25 5.25-4.25s5.25 1.65 5.25 4.25};
+}
+% padlock: authentication
+\defineicon{i-lock}{
+  \draw[rounded corners=1] (2.75,7.25) rectangle (13.25,13.75);
+  \draw (5.25,7.25) -- (5.25,5) arc [start angle=180, end angle=360, radius=2.75] -- (10.75,7.25);
+  \draw svg{M8 10v1.25};
+}
+% clock: timeout
+\defineicon{i-clock}{
+  \draw (8,8) circle [radius=5.75];
+  \draw svg{M8 4.75V8l2.25 1.5};
+}
+% triangle: warning / error
+\defineicon{i-warn}{
+  \draw svg{M8 2.25 14.25 13.25H1.75z};
+  \draw svg{M8 6.5v3};
+  \fill (8,11.4) circle [radius=.75];
+}
+\defineicon{i-check}{ \draw svg{M3 8.5l3 3 7-7}; }
+\defineicon{i-x}{ \draw svg{M4 4l8 8M12 4l-8 8}; }
+% plug: TCP connect
+\defineicon{i-plug}{
+  \draw svg{M5.75 2.25v3M10.25 2.25v3};
+  \draw svg{M3.75 5.25h8.5v2.5a4.25 4.25 0 0 1-8.5 0z};
+  \draw svg{M8 12v2};
+}
+% arrow into a tray (ParkingRecog "download"): RETR
+\defineicon{i-download}{
+  \draw svg{M8 2.25v7.5M5 7.25 8 10.25l3-3M2.5 13.5h11};
+}
+% sliders (ParkingRecog "setup"): configuration
+\defineicon{i-config}{
+  \draw svg{M2.25 5.5h2.5M8 5.5h5.75M2.25 10.5h5.5M11.2 10.5h2.55};
+  \draw (6.4,5.5) circle [radius=1.6];
+  \draw (9.5,10.5) circle [radius=1.6];
+}
+% ascending bars (ParkingRecog "reports"): performance
+\defineicon{i-chart}{
+  \draw svg{M2.25 13.75h11.5M5 13.75V9.5M8 13.75V5.5M11 13.75V7.75};
+}
+% angle brackets: code / the Go core
+\defineicon{i-code}{
+  \draw svg{M5.5 4.5 2 8l3.5 3.5M10.5 4.5 14 8l-3.5 3.5M9 3 7 13};
+}
+% the theme toggle's two glyphs, exactly as drawn in WebUI/src/theme.js
+\tikzset{pics/i-moon/.style={code={\begin{scope}[icon frame]
+  \fill svg{M13.3 9.9A5.9 5.9 0 0 1 6.1 2.7a5.9 5.9 0 1 0 7.2 7.2z};
+\end{scope}}}}
+\tikzset{pics/i-sun/.style={code={\begin{scope}[icon frame]
+  \fill (8,8) circle [radius=3.1];
+  \draw[icon stroke, line width=1.1pt] svg{M8 1.1v1.7M8 13.2v1.7M1.1 8h1.7M13.2 8h1.7M3.2 3.2l1.2 1.2M11.6 11.6l1.2 1.2M12.8 3.2l-1.2 1.2M4.4 11.6l-1.2 1.2};
+\end{scope}}}}

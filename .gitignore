@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Go: built binaries and test output
+Client/emailcli
+Client/serve
+Client/cli
+*.test
+*.out
+
+# Runtime data the client creates when it runs.
+# These hold downloaded mail, profile pictures and logs. Results/ keeps the
+# representative copies that are handed in.
+Client/data/
+Client/logs/
+*.tmp
+
+# Web UI: dependencies and build output (rebuild with `npm run build`)
+WebUI/node_modules/
+WebUI/dist/
+
+# LaTeX intermediates, in case the report is built with latexmk/pdflatex
+Documents/report/*.aux
+Documents/report/*.log
+Documents/report/*.out
+Documents/report/*.toc
+Documents/report/*.fdb_latexmk
+Documents/report/*.fls
+Documents/report/*.synctex.gz

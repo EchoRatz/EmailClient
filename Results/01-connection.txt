@@ -1,0 +1,13 @@
+$ printf "EHLO section5\r\nQUIT\r\n" | nc localhost 3025
+220 /172.17.0.2 GreenMail SMTP Service v2.1.14 ready
+250-/172.17.0.2
+250-AUTH PLAIN LOGIN XOAUTH2
+250 SMTPUTF8
+221 /172.17.0.2 Service closing transmission channel
+
+$ printf "USER alice@localhost\r\nPASS ****\r\nSTAT\r\nQUIT\r\n" | nc localhost 3110
++OK POP3 GreenMail Server v2.1.14 ready
++OK
++OK
++OK 0 0
++OK bye see you soon
